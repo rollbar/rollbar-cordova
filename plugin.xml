@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="rollbar-cordova" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>RollbarPlugin</name>
+    <js-module name="RollbarProxy" src="www/RollbarProxy.js">
+        <clobbers target="RollbarProxy" />
+    </js-module>
+
+    <js-module name="Rollbar" src="lib/rollbar.js">
+        <clobbers target="Rollbar" />
+    </js-module>
+
+    // the minimum cordova version which supports this plugin
+    <engines>
+        <engine name="cordova" version=">=3.6.0"></engine>
+    </engines>
+
+    <platform name="android">
+        <!-- production reference to rollbar-android -->
+        <framework src="com.rollbar:rollbar-android:1.+" type="gradleReference" />
+
+        <!-- local reference to rollbar-android, used only in development of rollbar-android
+        <framework src="org.slf4j:slf4j-log4j12:+" type="gradleReference" />
+        <source-file src="dev/rollbar-web.jar" target-dir="libs"/>
+        <source-file src="dev/rollbar-logback.jar" target-dir="libs"/>
+        <source-file src="dev/rollbar-log4j2.jar" target-dir="libs"/>
+        <source-file src="dev/rollbar-api.jar" target-dir="libs"/>
+        <source-file src="dev/rollbar-java.jar" target-dir="libs"/>
+        <source-file src="dev/rollbar-android-release.aar" target-dir="libs"/>
+        <framework src="dev/rollbar.gradle" custom="true" type="gradleReference" />
+        -->
+
+        <source-file src="src/android/com/rollbar/cordova/RollbarPlugin.java"
+                     target-dir="src/com/rollbar/cordova"></source-file>
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            // the feature describes the Java class which we want to use
+            // the value is the class path where this class can be found
+            <feature name="RollbarPlugin">
+                <param name="android-package" value="com.rollbar.cordova.RollbarPlugin" />
+
+                // Plugins are not instantiated until they are first referenced
+                // by a call from JavaScript, unless onload is set to "true"
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+    </platform>
+
+    <platform name="ios">
+        <podspec>
+          <config>
+            <source url="https://github.com/CocoaPods/Specs.git"/>
+          </config>
+          <pods use-frameworks="true">
+            <!-- load via cocoapods or git -->
+            <!-- framework src="Rollbar" type="podspec" spec="~> 1.5.2" / -->
+            <pod name="Rollbar" git="git@github.com:rollbar/rollbar-ios.git" branch="master" />
+          </pods>
+        </podspec>
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="RollbarPlugin">
+                <param name="ios-package" value="RollbarPlugin" />
+
+                // Plugins are not instantiated until they are first referenced
+                // by a call from JavaScript, unless onload is set to "true"
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <header-file src="src/ios/RollbarPlugin.h" />
+        <source-file src="src/ios/RollbarPlugin.m" />
+    </platform>
+</plugin>

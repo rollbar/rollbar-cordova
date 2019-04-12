@@ -1,0 +1,24 @@
+{
+  "name": "rollbar-cordova",
+  "version": "0.0.1",
+  "description": "Rollbar for Cordova applications",
+  "cordova": {
+    "id": "rollbar-cordova",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.6.0"
+    }
+  ],
+  "license": "MIT"
+}

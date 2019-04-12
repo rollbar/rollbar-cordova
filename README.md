@@ -34,7 +34,7 @@ For bug reports, please [open an issue on Github](https://github.com/rollbar/rol
 
 The following applies only if you make changes to rollbar-java, rollbar-ios, or rollbar.js
 that must be tested with rollbar-cordova while in development. These dependencies are installed
-when the plugin is added, and you must remove and re-add the plugin when making these changes.
+when the plugin is added, and you must remove and re-add the plugin from a local folder when making these changes.
 
 ### Rollbar-ios
 

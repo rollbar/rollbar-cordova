@@ -45,7 +45,7 @@ Update the pod element in plugin.xml with your git branch location.
 
 ### Rollbar-java
 
-Follow the instructions in [dev/README.md](https://github.com/rollbar/rollbar-cordova/dev/README.md).
+Follow the instructions in [dev/README.md](https://github.com/rollbar/rollbar-cordova/tree/master/dev/README.md).
 
 ### Rollbar.js
 

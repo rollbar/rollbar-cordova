@@ -1,7 +1,11 @@
 {
   "name": "rollbar-cordova",
-  "version": "0.0.1",
-  "description": "Rollbar for Cordova applications",
+  "version": "0.1.0",
+  "description": "Rollbar offical supported plugin for Cordova. Provides full Rollbar functionality for Javascript, and native iOS and Android environments.",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/rollbar/rollbar-cordova"
+  },
   "cordova": {
     "id": "rollbar-cordova",
     "platforms": [
@@ -12,7 +16,10 @@
   "keywords": [
     "ecosystem:cordova",
     "cordova-android",
-    "cordova-ios"
+    "cordova-ios",
+    "cordova",
+    "rollbar",
+    "plugin"
   ],
   "engines": [
     {
@@ -20,5 +27,12 @@
       "version": ">=3.6.0"
     }
   ],
+  "scripts": {
+    "prepare": "cp node_modules/rollbar/dist/rollbar.min.js lib/rollbar.js",
+    "test": "echo 'Error: no test specified'"
+  },
+  "dependencies": {
+    "rollbar": "^2.6.1"
+  },
   "license": "MIT"
 }

@@ -1,10 +1,9 @@
 repositories {
-    jcenter()
     flatDir {
         dirs 'libs'
     }
 }
 
 dependencies {
-    compile(name: 'rollbar-android-release', ext: 'aar')
+    api(name: 'rollbar-android-release', ext: 'aar')
 }

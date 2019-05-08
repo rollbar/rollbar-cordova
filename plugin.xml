@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="rollbar-cordova" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>RollbarPlugin</name>
+<plugin id="rollbar-cordova" version="0.1.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>RollbarCordova</name>
     <js-module name="RollbarProxy" src="www/RollbarProxy.js">
         <clobbers target="RollbarProxy" />
     </js-module>
@@ -16,7 +16,7 @@
 
     <platform name="android">
         <!-- production reference to rollbar-android -->
-        <framework src="com.rollbar:rollbar-android:1.+" type="gradleReference" />
+        <framework src="com.rollbar:rollbar-android:1.+"/>
 
         <!-- local reference to rollbar-android, used only in development of rollbar-android
         <framework src="org.slf4j:slf4j-log4j12:+" type="gradleReference" />
@@ -29,14 +29,14 @@
         <framework src="dev/rollbar.gradle" custom="true" type="gradleReference" />
         -->
 
-        <source-file src="src/android/com/rollbar/cordova/RollbarPlugin.java"
+        <source-file src="src/android/com/rollbar/cordova/RollbarCordova.java"
                      target-dir="src/com/rollbar/cordova"></source-file>
 
         <config-file target="res/xml/config.xml" parent="/*">
             // the feature describes the Java class which we want to use
             // the value is the class path where this class can be found
-            <feature name="RollbarPlugin">
-                <param name="android-package" value="com.rollbar.cordova.RollbarPlugin" />
+            <feature name="RollbarCordova">
+                <param name="android-package" value="com.rollbar.cordova.RollbarCordova" />
 
                 // Plugins are not instantiated until they are first referenced
                 // by a call from JavaScript, unless onload is set to "true"
@@ -52,21 +52,21 @@
           </config>
           <pods use-frameworks="true">
             <!-- load via cocoapods or git -->
-            <!-- framework src="Rollbar" type="podspec" spec="~> 1.5.2" / -->
-            <pod name="Rollbar" git="git@github.com:rollbar/rollbar-ios.git" branch="master" />
+            <pod name="Rollbar" spec="~> 1.6.0"/>
+            <!-- pod name="Rollbar" git="git@github.com:rollbar/rollbar-ios.git" branch="master"/ -->
           </pods>
         </podspec>
 
         <config-file target="config.xml" parent="/*">
-            <feature name="RollbarPlugin">
-                <param name="ios-package" value="RollbarPlugin" />
+            <feature name="RollbarCordova">
+                <param name="ios-package" value="RollbarCordova" />
 
                 // Plugins are not instantiated until they are first referenced
                 // by a call from JavaScript, unless onload is set to "true"
                 <param name="onload" value="true" />
             </feature>
         </config-file>
-        <header-file src="src/ios/RollbarPlugin.h" />
-        <source-file src="src/ios/RollbarPlugin.m" />
+        <header-file src="src/ios/RollbarCordova.h" />
+        <source-file src="src/ios/RollbarCordova.m" />
     </platform>
 </plugin>

@@ -1,21 +1,21 @@
-#import "RollbarPlugin.h"
+#import "RollbarCordova.h"
 #import <Cordova/CDV.h>
 #import <Rollbar/Rollbar.h>
 
-@implementation RollbarPlugin
+@implementation RollbarCordova
 
 - (void)pluginInitialize {
     NSString* token = [self.commandDelegate.settings objectForKey:[@"RollbarClientToken" lowercaseString]];
     [Rollbar initWithAccessToken:token];
 }
 
-- (void)send:(CDVInvokedUrlCommand*)command
+- (void)sendJsonPayload:(CDVInvokedUrlCommand*)command
 {
     CDVPluginResult* pluginResult = nil;
     NSString* json = [command.arguments objectAtIndex:0];
     NSData* data = [json dataUsingEncoding:NSUTF8StringEncoding];
 
-    [Rollbar send:data];
+    [Rollbar sendJsonPayload:data];
 
     if (json != nil && [json length] > 0) {
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"Sent OK"];

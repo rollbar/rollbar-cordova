@@ -13,7 +13,7 @@ import org.json.JSONException;
 import android.content.Context;
 import com.rollbar.android.Rollbar;
 
-public class RollbarPlugin extends CordovaPlugin {
+public class RollbarCordova extends CordovaPlugin {
     private Rollbar rollbar;
 
     @Override
@@ -27,8 +27,8 @@ public class RollbarPlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if ("send".equals(action)) {
-            rollbar.send(args.getString(0));
+        if ("sendJsonPayload".equals(action)) {
+            rollbar.sendJsonPayload(args.getString(0));
 
             return true;
         }

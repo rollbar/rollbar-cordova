@@ -7,10 +7,6 @@ them in ways never possible before. We love it and we hope you will too.
 Rollbar-cordova is the SDK for Cordova apps, includinng full support for Android,
 iOS, and Javascript environments in Cordova.
 
-> NOTE: Rollbar-cordova dependency support (rollbar-ios, rollbar-java, rollbar.js) is not
-published yet, and the plugin must be used in development mode as described in the development
-section below. This notice will be removed when the required dependencies are published.
-
 ## Setup Instructions
 
 1. [Sign up for a Rollbar account](https://rollbar.com/signup)
@@ -18,7 +14,7 @@ section below. This notice will be removed when the required dependencies are pu
 
 ## Usage and Reference
 
-For complete Usage instructions and configuration reference, see our [React Native docs](https://rollbar.readme.io/docs/rollbar-cordova#section-configuration).
+For complete Usage instructions and configuration reference, see our [Cordova docs](https://rollbar.readme.io/docs/rollbar-cordova#section-configuration).
 
 ## Release History & Changelog
 
